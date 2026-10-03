@@ -1,0 +1,116 @@
+// Mock official SEBI & Depository Master Directory for real-time verification
+
+export const SEBI_ENTITIES = [
+  {
+    regNo: 'INH000001234',
+    type: 'Research Analyst (RA)',
+    name: 'Bharat Alpha Securities Advisory LLP',
+    contactPerson: 'Sunil R. Deshmukh',
+    officialEmail: 'compliance@bharatalpha.in',
+    officialDomain: 'bharatalpha.in',
+    registeredOffice: 'BKC, Bandra East, Mumbai, Maharashtra 400051',
+    validTill: '2029-04-30',
+    status: 'ACTIVE',
+    scopeAllowed: 'Securities research reports, broad market analysis. NO portfolio pooling or guaranteed profit claims permitted.',
+  },
+  {
+    regNo: 'INA000009876',
+    type: 'Investment Adviser (RIA)',
+    name: 'Dhanvriddhi Wealth Advisory Services',
+    contactPerson: 'Meera Venkatraman',
+    officialEmail: 'advisory@dhanvriddhi.co.in',
+    officialDomain: 'dhanvriddhi.co.in',
+    registeredOffice: 'Koramangala 4th Block, Bengaluru, Karnataka 560034',
+    validTill: '2028-11-15',
+    status: 'ACTIVE',
+    scopeAllowed: 'Fee-only financial planning. Strictly forbidden from executing trades on client behalf or taking profit share.',
+  },
+  {
+    regNo: 'INZ000031633',
+    type: 'Stock Broker / Clearing Member',
+    name: 'Zerodha Broking Limited',
+    contactPerson: 'Nithin Kamath',
+    officialEmail: 'complaints@zerodha.com',
+    officialDomain: 'zerodha.com',
+    registeredOffice: 'JP Nagar, Bengaluru, Karnataka 560078',
+    validTill: 'PERMANENT',
+    status: 'ACTIVE',
+    scopeAllowed: 'Discount Broking & Depository Participant. All funds collected strictly through SEBI-monitored Upstreaming Banking Gateways.',
+  },
+  {
+    regNo: 'INZ000208032',
+    type: 'Stock Broker / Clearing Member',
+    name: 'Nextbillion Technology Pvt Ltd (Groww)',
+    contactPerson: 'Lalit Keshre',
+    officialEmail: 'support@groww.in',
+    officialDomain: 'groww.in',
+    registeredOffice: 'Outer Ring Road, Bengaluru, Karnataka 560103',
+    validTill: 'PERMANENT',
+    status: 'ACTIVE',
+    scopeAllowed: 'Retail broking, mutual funds, IPO applications.',
+  },
+  {
+    regNo: 'IN-DP-431-2019',
+    type: 'Depository (National Securities Depository Limited)',
+    name: 'NSDL (National Securities Depository Limited)',
+    contactPerson: 'Padmaja Chunduru (MD & CEO)',
+    officialEmail: 'info@nsdl.co.in',
+    officialDomain: 'nsdl.co.in',
+    registeredOffice: 'Trade World, A wing, 4th Floor, Kamala Mills Compound, Lower Parel, Mumbai 400013',
+    validTill: 'PERMANENT',
+    status: 'ACTIVE',
+    scopeAllowed: 'National Central Depository. Facilitates electronic dematerialization, e-DIS, and CAS statements. NEVER collects funds via personal UPI to unfreeze Demat accounts.',
+  },
+  {
+    regNo: 'IN-DP-CDSL-01',
+    type: 'Depository (Central Depository Services India Limited)',
+    name: 'CDSL (Central Depository Services (India) Limited)',
+    contactPerson: 'Compliance Officer',
+    officialEmail: 'helpdesk@cdslindia.com',
+    officialDomain: 'cdslindia.com',
+    registeredOffice: 'Marathon Futurex, A-Wing, Mafatlal Mills Compound, NM Joshi Marg, Lower Parel, Mumbai 400013',
+    validTill: 'PERMANENT',
+    status: 'ACTIVE',
+    scopeAllowed: 'Central Depository. Provides TPIN authorization and security alerts. Does not levy ad-hoc penalties payable via UPI.',
+  }
+];
+
+// Typical known fraudulent entities, blacklisted schemes & fake clones
+export const KNOWN_SCAM_PATTERNS = [
+  {
+    keyword: 'institutional account',
+    severity: 'CRITICAL',
+    title: 'Fake Institutional/FII Quota Scam',
+    description: 'Scammers claim to provide "FII Institutional Account" or "Special Corporate Terminal" access with 10x leverage and guaranteed upper-circuit allotment. Retail investors are legally barred from pooled FII sub-accounts.',
+  },
+  {
+    keyword: 'upper circuit',
+    severity: 'HIGH',
+    title: 'Pump-and-Dump Upper Circuit Lure',
+    description: 'Promises guaranteed buy access to illiquid SME stocks before upper-circuit lock. Victims are dumped on when scammers exit.',
+  },
+  {
+    keyword: 'guaranteed return',
+    severity: 'CRITICAL',
+    title: 'Guaranteed Profit Illegal Promise',
+    description: 'Strictly prohibited under SEBI Research Analysts Regulations 2014 & SEBI (PFUTP) Regulations. No registered entity can promise fixed stock market returns.',
+  },
+  {
+    keyword: 'pre-ipo allocation',
+    severity: 'HIGH',
+    title: 'Unlisted/Pre-IPO Allocation Trap',
+    description: 'Offering private quota for mega IPOs at discounted rates, depositing funds to private UPI/bank accounts. Securities never reflect in official CDSL/NSDL Demat statement.',
+  },
+  {
+    keyword: 'demat freeze',
+    severity: 'CRITICAL',
+    title: 'Fake Depository Suspension / Phishing Trap',
+    description: 'Claims Demat account is locked under imaginary SEBI circular and demands reactivation fee via UPI. Depositories NEVER charge reactivation fees to private accounts.',
+  },
+  {
+    keyword: 'telegram vip',
+    severity: 'HIGH',
+    title: 'Unregulated Social Media Tip Group',
+    description: 'Advisory operated anonymously through Telegram/WhatsApp without SEBI license, often using forged certificates.',
+  }
+];

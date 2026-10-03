@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #fafafa;
+    color: #171717;
+    font-family: 'Geist', 'Plus Jakarta Sans', 'Noto Sans Devanagari', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .dark body {
+    background-color: #000000;
+    color: #ededed;
+  }
+
+  /* Prevent Indic/Devanagari matras from being cut off by line-box clipping */
+  .devanagari-safe {
+    line-height: 1.35 !important;
+    padding-top: 0.05em;
+    padding-bottom: 0.1em;
+  }
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Subtle hairline grid pattern inspired by Vercel's developer canvas */
+.geist-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.dark .geist-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Vercel multi-stop mesh gradient bloom */
+.geist-mesh-bloom {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 480px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(80, 227, 194, 0.22) 0%,
+    rgba(0, 112, 243, 0.20) 25%,
+    rgba(121, 40, 202, 0.18) 50%,
+    rgba(255, 0, 128, 0.14) 70%,
+    rgba(245, 166, 35, 0.08) 85%,
+    transparent 100%
+  );
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 9999px;
+}
+
+.dark .geist-mesh-bloom {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(80, 227, 194, 0.18) 0%,
+    rgba(0, 112, 243, 0.22) 25%,
+    rgba(121, 40, 202, 0.20) 50%,
+    rgba(255, 0, 128, 0.15) 70%,
+    rgba(245, 166, 35, 0.08) 85%,
+    transparent 100%
+  );
+}
+
+/* Vercel text gradient effect */
+.geist-text-gradient {
+  background: linear-gradient(135deg, #007cf0 0%, #7928ca 50%, #ff0080 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom subtle animations */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.88; transform: scale(1.02); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.scanner-beam {
+  animation: scan-line 2.5s ease-in-out infinite;
+}
